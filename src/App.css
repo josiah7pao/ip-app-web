@@ -1,0 +1,93 @@
+.app-container {
+  display: flex;
+  justify-content: center; /* center the whole row horizontally */
+  align-items: center;     /* center vertically */
+  gap: 2rem;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  height: 100vh; /* take full viewport height */
+}
+
+.ip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px; /* fixed width for IP info + fields */
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.ip-container input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.map-container {
+  width: 500px;
+  height: 500px; /* square map */
+  border-radius: 12px;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.split-layout {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  width: 320px;
+}
+
+.map-wrapper {
+  width: 420px;
+  height: 420px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.search-form {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 8px;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.center-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
