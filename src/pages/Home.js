@@ -27,7 +27,7 @@ function RecenterMap({ coords }) {
   return null;
 }
 
-export default function Home({ user, setUser }) {
+export default function Home({ setUser }) {
   const [ipData, setIpData] = useState(null);
   const [history, setHistory] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -37,16 +37,15 @@ export default function Home({ user, setUser }) {
   const [loading, setLoading] = useState(true);
 
   const isPrivateIP = (value) => {
-    // frontend validation in case of invalid private IPv4 searches 
+    const octets = value.split(".").map(Number);
+    if (octets.length !== 4 || octets.some((octet) => Number.isNaN(octet))) return false;
+
+    const [a, b] = octets;
     return (
-      value.startsWith("10.") ||
-      value.startsWith("192.168.") ||
-      value.startsWith("127.") ||
-      value.startsWith("172.16.") ||
-      value.startsWith("172.17.") ||
-      value.startsWith("172.18.") ||
-      value.startsWith("172.19.") ||
-      value.startsWith("172.2")
+      a === 10 ||
+      (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && b === 168) ||
+      a === 127
     );
   };
 
@@ -96,7 +95,7 @@ export default function Home({ user, setUser }) {
     }
   };
 
-  // search history clear and be clickable
+  // Reset search UI state and reload default IP + history.
 
   const handleClearSearch = async () => {
     setIp("");
@@ -188,8 +187,8 @@ export default function Home({ user, setUser }) {
             </button>
           </form>
 
-          <p className={`status status-slot ${status ? "" : "is-hidden"}`}>{status || "placeholder"}</p>
-          <p className={`error error-slot ${error ? "" : "is-hidden"}`}>{error || "placeholder"}</p>
+          <p className={`status status-slot ${status ? "" : "is-hidden"}`}>{status || " "}</p>
+          <p className={`error error-slot ${error ? "" : "is-hidden"}`}>{error || " "}</p>
 
           <div className="history-header">
             <h3>Search History</h3>

@@ -47,7 +47,7 @@ export default function Login({ setUser }) {
             Login
           </button>
         </form>
-        <p className={`error error-slot ${error ? "" : "is-hidden"}`}>{error || "placeholder"}</p>
+        <p className={`error error-slot ${error ? "" : "is-hidden"}`}>{error || " "}</p>
       </div>
     </div>
   );

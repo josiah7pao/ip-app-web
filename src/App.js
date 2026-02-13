@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       {user ? (
-        <Home user={user} setUser={setUser} />
+        <Home setUser={setUser} />
       ) : (
         <Login setUser={setUser} />
       )}
